@@ -1,0 +1,123 @@
+#include <iostream>
+#include<stdio.h>
+#include <winsock2.h>
+#include<conio.h>
+#include <pthread.h>
+#include<ctype.h>
+
+using namespace std;
+void *threadFunc(void *arg);
+int main()
+{
+    pthread_t tid;
+pthread_create(&tid, NULL, threadFunc, NULL);
+pthread_join(tid, NULL);
+return 0;
+
+
+}
+void Connect(SOCKET* client,SOCKADDR_IN addr)
+{
+    int Connect = 1;
+    closesocket(*client);
+    SOCKET so = socket(AF_INET, SOCK_STREAM, 0);
+    *client = so;
+
+   while(Connect)
+    {
+        int con = connect(*client, (SOCKADDR *)&addr, sizeof(addr));
+        printf("tring to connect");
+      if (con==0)
+      {
+          printf("connected t \t");
+          Connect = 0;
+      }
+      else
+      {
+         printf("Could not connect will try again later\n");
+         Sleep(3000);
+
+      }
+
+    }
+
+}
+void *threadFunc(void *arg)
+{
+    WSADATA WSAData;
+    SOCKET server;
+    SOCKADDR_IN addr;
+
+
+    WSAStartup(MAKEWORD(2,0), &WSAData);
+    server = socket(AF_INET, SOCK_STREAM, 0);
+
+    addr.sin_addr.s_addr = inet_addr("192.168.1.200"); // replace the ip with your futur server ip address. If server AND client are running on the same computer, you can use the local ip 127.0.0.1
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(5555);
+
+    Connect(&server,addr);
+
+
+
+    char buffer[1024];
+    int state = 12;
+    while (state)
+    {
+
+
+
+        int control = 0,i=0;
+
+        while (state>11){
+        char ch = getche();
+        if (ch ==0)
+           {
+             ch = getch();
+             control = 1;
+           }
+        else if (!isprint(ch))
+        {
+            control = 1;
+        }
+        else
+          {
+              buffer[i] = ch;
+              i++;
+          }
+        if (control)
+        switch(ch)
+        {
+            case 27: // esc
+				state = 0;
+				break;
+			case 13://enter
+                state = 10;
+                buffer[i] = 0;
+				break;
+        }
+
+        }
+    if (state >0){
+
+    int sucss = send(server, buffer, sizeof(buffer), 0);
+    if (sucss<0)
+        {Connect(&server,addr);
+        send(server, buffer, sizeof(buffer), 0);
+        }
+    printf("%s",buffer);
+    cout << "Message sent!" << endl;
+    state = 13;
+
+    }
+    }
+
+
+
+    closesocket(server);
+    WSACleanup();
+    cout << "Socket closed." << endl << endl;
+    return arg;
+
+}
+

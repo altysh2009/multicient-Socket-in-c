@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1509473087 source:c:\users\home-\desktop\server\main.cpp
+	<winsock2.h>
+	<iphlpapi.h>
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	<Assert.h>
+	<string>
+	<vector>
+	<iostream>
+	<pthread.h>
+
+1509606704 source:c:\users\userpc\desktop\server\main.cpp
+	<winsock2.h>
+	<iphlpapi.h>
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	<Assert.h>
+	<string>
+	<vector>
+	<iostream>
+	<pthread.h>
+
+1509821345 source:c:\users\userpc\desktop\new folder (2)\server\main.cpp
+	<winsock2.h>
+	<iphlpapi.h>
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	<Assert.h>
+	<string>
+	<vector>
+	<iostream>
+	<pthread.h>
+
+1510286879 source:c:\users\ahmed mostafa\desktop\new folder (2)\server\main.cpp
+	<winsock2.h>
+	<iphlpapi.h>
+	<stdlib.h>
+	<stdio.h>
+	<conio.h>
+	<pthread.h>
+
