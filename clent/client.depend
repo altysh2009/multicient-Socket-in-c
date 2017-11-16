@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1510286095 source:c:\users\ahmed mostafa\desktop\new folder (2)\clent\main.cpp
+1510820035 source:c:\users\ahmed mostafa\desktop\new folder (2)\clent\main.cpp
 	<iostream>
 	<stdio.h>
 	<winsock2.h>
 	<conio.h>
+	<windows.h>
 	<pthread.h>
 	<ctype.h>
 	<semaphore.h>
