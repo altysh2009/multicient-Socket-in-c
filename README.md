@@ -1,5 +1,5 @@
-# multicient Socket in c
-++ // ITI OS socket project
+# multicient Socket in c++ 
+// ITI OS socket project
 This is simple program using threading to server and multi-client
 server can identify users by their name
 server can send massages by user name 
