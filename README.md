@@ -1,4 +1,4 @@
-# multicient Socket in c++ 
+# multicient Socket in c++ in windows
 // ITI OS socket project
 This is simple program using threading to server and multi-client
 server can identify users by their name
